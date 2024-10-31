@@ -1,5 +1,6 @@
 package ejemplos.servlet.curso;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +15,17 @@ public class MyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Form html.jsp");
+		dispatcher.forward(request, response);
+
+
+
+		//response.setContentType("text/html");
+		//PrintWriter out = response.getWriter();
+        /*
 		// send HTML page to client
+
 		out.println("<html>");
 		out.println("<head><title>Actividad 1. servlet HTML</title></head>");
 		out.println("<head><h1>Formulario</h1></head>");
@@ -28,6 +36,8 @@ public class MyServlet extends HttpServlet {
 		out.println("<input type='submit' value='Enviar'>");
 		out.println("</form>");
 		out.println("</body></html>");
+		*/
+
 	}
 
 }
